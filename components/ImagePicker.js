@@ -8,7 +8,6 @@ import Colors from '../constants/Colors';
 const ImgPicker = props => {
     const [pickedImage, setPikedImage] = useState();
 
-
     const verifyPermissions = async () => {
         const result = await Permissions.askAsync(Permissions.CAMERA, Permissions.CAMERA_ROLL);
 
@@ -32,9 +31,10 @@ const ImgPicker = props => {
             aspect: [16, 9],
             quality: 0.5
         });
-        console.log(image);
+
         setPikedImage(image.uri);
-    };
+        props.onImageTaken(image.uri);
+    };    
 
     return (
         <View style={styles.imagePicker}>
@@ -53,7 +53,8 @@ const ImgPicker = props => {
 };
 const styles = StyleSheet.create({
     imagePicker: {
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 15
     },
     imagePreview: {
         width: '100%',
