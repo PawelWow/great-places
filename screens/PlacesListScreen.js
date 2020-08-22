@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -52,8 +52,6 @@ PlacesListScreen.navigationOptions = navData => {
         }
     }
 };
-
-const styles = StyleSheet.create({});
 
 export default PlacesListScreen;
 
