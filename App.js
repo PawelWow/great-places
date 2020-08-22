@@ -3,8 +3,16 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 
+import { init } from './helpers/db';
 import PlacesNavigator from './navigation/PlacesNavigator';
 import placesReducer from './store/places-reducer';
+
+init().then(() => {
+  console.log("Database initialized");
+}).catch(err => {
+  console.log('Database initialization failed');
+  console.log(err);
+})
 
 const rootReducer = combineReducers({
   places: placesReducer
