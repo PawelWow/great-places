@@ -2,7 +2,7 @@ import * as FileSystem from 'expo-file-system';
 import { insertPlace, fetchPlaces } from '../helpers/db';
 import { Alert } from 'react-native';
 
-import ENV from '../env';
+import SECRETS from '../secrets';
 
 export const ADD_PLACE = 'ADD_PLACE';
 export const SET_PLACES = 'SET_PLACES';
@@ -10,7 +10,7 @@ export const SET_PLACES = 'SET_PLACES';
 export const addPlace = (title, image, location) => {
     return async dispatch => {
         const response = await fetch(
-            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${ENV.googleApiKey}`
+            `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${SECRETS.googleApiKey}`
           );
       
           if (!response.ok) {
