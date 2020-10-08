@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-import ENV from '../env';
+import secrets from '../secrets';
 
 const MapPreview = props => {
     let imagePreviewUrl;
@@ -9,7 +9,7 @@ const MapPreview = props => {
     {
         imagePreviewUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${props.location.lat},${props.location.lng}&zoom=14&size=400x200&maptype=roadmap
         &markers=color:red%7Clabel:A%7C${props.location.lat},${props.location.lng}
-        &key=${ENV.googleApiKey}`;
+        &key=${secrets.googleApiKey}`;
     }
 
     // To raczej nie będzie działać, bo  nie mam aktywnej subskrypcji
